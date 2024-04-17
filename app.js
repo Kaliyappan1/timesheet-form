@@ -1,15 +1,17 @@
 const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
 
-const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+const db_connection = require('./database/db_connection');
+
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded());
-app.use(express.static( 'public'))
+app.use(express.static( 'public'));
+app.use(db_connection);
+
 
 
 app.listen(port, (err, res) => {
