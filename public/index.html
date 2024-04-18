@@ -16,34 +16,36 @@
         <div class="mt-5 row">
             <h3 class="mt-4">Names <code>*</code></h3>
             <div class="mt-2 col-auto">
-                <div class="form-check">
-                    <input type="checkbox" name="name" class="form-check-input forms" id="name">
-                    <label for="name" class="form-check-label">kaliyappan</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="name2" class="form-check-input forms" id="name2">
-                    <label for="name2" class="form-check-label">Muruganantham</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="name3" class="form-check-input forms" id="name3">
-                    <label for="name3" class="form-check-label">Maheshwari</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="name4" class="form-check-input forms" id="name4">
-                    <label for="name4" class="form-check-label">Ramany</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="name5" class="form-check-input forms" id="name5">
-                    <label for="name5" class="form-check-label">Rahuman</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="name6" class="form-check-input forms" id="name6">
-                    <label for="name6" class="form-check-label">Varsha</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="name7" class="form-check-input forms" id="name7">
-                    <label for="name7" class="form-check-label">Shamanth</label>
-                </div>
+                <form id="nameForm">
+                    <div class="form-check">
+                        <input type="checkbox" name="name" class="form-check-input forms" id="name" required> 
+                        <label for="name" class="form-check-label">kaliyappan</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="name2" class="form-check-input forms" id="name2" required>
+                        <label for="name2" class="form-check-label">Muruganantham</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="name3" class="form-check-input forms" id="name3" required>
+                        <label for="name3" class="form-check-label">Maheshwari</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="name4" class="form-check-input forms" id="name4" required>
+                        <label for="name4" class="form-check-label">Ramany</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="name5" class="form-check-input forms" id="name5" required>
+                        <label for="name5" class="form-check-label">Rahuman</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="name6" class="form-check-input forms" id="name6" required>
+                        <label for="name6" class="form-check-label">Varsha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="name7" class="form-check-input forms" id="name7" required>
+                        <label for="name7" class="form-check-label">Shamanth</label>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- date -->
@@ -51,7 +53,7 @@
             <h3 class="mt-5">Date <code>*</code></h3>
             <div class="col-4">
                 <div class="input-group col-date" id="datepicker">
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" required>
                     
                 </div>
             </div>
@@ -59,7 +61,7 @@
         <!-- attendance -->
         <div class="mt-5 col-auto">
             <h3>Attendance <code>*</code></h3>
-            <div class="form-group">
+            <div class="form-group" aria-required="true">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input formAttendance" id="work">
                     <label for="work" class="form-check-label">Working/worked</label>

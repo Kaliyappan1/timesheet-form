@@ -64,3 +64,19 @@ function navigate() {
     function navigateToPage1() {
         window.location.href = 'index.html';
     }
+
+    // name form
+
+    document.getElementById("nameForm").addEventListener("submit", function(event) {
+        var checkboxes = document.querySelectorAll('.forms');
+        var isChecked = false;
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                isChecked = true;
+            }
+        });
+        if (!isChecked) {
+            alert("required");
+            event.preventDefault();
+        }
+    });
