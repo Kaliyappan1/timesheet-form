@@ -67,16 +67,11 @@ function navigate() {
 
     // name form
 
-    document.getElementById("nameForm").addEventListener("submit", function(event) {
-        var checkboxes = document.querySelectorAll('.forms');
-        var isChecked = false;
-        checkboxes.forEach(function(checkbox) {
-            if (checkbox.checked) {
-                isChecked = true;
-            }
-        });
-        if (!isChecked) {
-            alert("required");
+
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", function(event) {
+        if (!form.checkValidity()) {
             event.preventDefault();
+            alert("Please fill out all required fields.");
         }
     });

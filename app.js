@@ -1,7 +1,7 @@
 const express = require('express');
 
 const bodyParser = require('body-parser');
-const db_connection = require('./database/db_connection');
+// const db_connection = require('./database/db_connection');
 
 require('dotenv').config();
 
@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded());
 app.use(express.static( 'public'));
-app.use(db_connection);
+// app.use(db_connection);
 
 
 

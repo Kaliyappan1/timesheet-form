@@ -1,0 +1,10 @@
+#workHours{
+    display: block;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #555;
+    background: transparent;
+    outline: none;
+    font-size: 26px;
+    padding: 5px 0;
+}
