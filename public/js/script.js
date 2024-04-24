@@ -1,77 +1,38 @@
+const form = document.getElementById('timesheet-form');
+const successMessage = document.getElementById('success-message');
 
-    const checkboxes = document.querySelectorAll('.forms');
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
 
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            checkboxes.forEach(cb => {
-                if (cb !== this) {
-                    cb.checked = false;
-                }
-            });
-            // Remove 'col-auto' class from parent div after a checkbox is clicked
-            document.getElementById('checkbox-Container').classList.remove('col-auto');
-        });
-    });
-    const cbAttendence = document.querySelectorAll('.formAttendance');
+  // Form validation (add more validation as needed)
+  const name = document.getElementById('name').value;
+  const date = document.getElementById('date').value;
+  const hoursWorked = document.getElementById('hours-worked').value;
+  const description = document.getElementById('description').value;
 
-    cbAttendence.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            cbAttendence.forEach(cb => {
-                if (cb !== this) {
-                    cb.checked = false;
-                }
-            });
-            // Remove 'col-auto' class from parent div after a checkbox is clicked
-            document.getElementById('checkbox-Container').classList.remove('col-auto');
-        });
-    });
+  if (name === '' || date === '') {
+    alert('Please enter your name and date.');
+    return; // Exit the function if validation fails
+  }
 
-// navigate function 
-function navigate() {
-    var checkboxes = document.querySelectorAll('.formAttendance');
-    var checkedCheckbox = Array.from(checkboxes).find(checkbox => checkbox.checked);
+  if (hoursWorked < 0 || hoursWorked > 24) {
+    alert('Please enter valid hours worked (between 0 and 24).');
+    return;
+  }
 
-    if (checkedCheckbox) {
-        switch (checkedCheckbox.id) {
-            case 'work':
-                window.location.href = 'work-detail.html';
-                break;
-            case 'delay':
-                window.location.href = 'work-detail.html';
-                break;
-            case 'leave':
-                window.location.href = 'leaveForm.html';
-                break;
-            default:
-                // Handle if no checkbox is checked
-                alert('Please select an option.');
-        }
-    } else {
-        // Handle if no checkbox is checked
-        alert('Please select an option.');
-    }
-}
+  // Simulate form submission (replace with your actual submission logic)
+  console.log('Submitting timesheet:', {
+    name: name,
+    date: date,
+    attendance: document.querySelector('input[name="attendance"]:checked').value,
+    hoursWorked: hoursWorked,
+    description: description
+  });
 
-    $(document).ready(function(){
-        // Initialize datepicker
-        $('#datepicker').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-    });
-
-
-    function navigateToPage1() {
-        window.location.href = 'index.html';
-    }
-
-    // name form
-
-
-    const form = document.getElementById("myForm");
-    form.addEventListener("submit", function(event) {
-        if (!form.checkValidity()) {
-            event.preventDefault();
-            alert("Please fill out all required fields.");
-        }
-    });
+  successMessage.classList.remove('d-none'); // Show success message
+  setTimeout(() => {
+    successMessage.classList.add('d-none'); // Hide success message after a delay
+    //   Redirect after hiding message
+    // window.location.href = "submit.html";
+  },100000000000000); // Hide message after 3 seconds
+});
