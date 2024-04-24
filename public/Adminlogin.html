@@ -9,17 +9,40 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="admin.css" />
+    <script>
+      function validateAdminLogin(event) {
+        event.preventDefault(); // Prevent default form submission
+      
+        // Get form values
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+      
+        // Simple validation (replace with your actual validation logic)
+        if (email === '' || password === '') {
+          alert('Please enter your email and password.');
+          return false; // Prevent form submission if validation fails
+        }
+      
+        // Simulate successful login (replace with your login logic)
+        console.log('Admin login successful:', { email: email, password: password });
+      
+        // Redirect to another page after successful login
+        window.location.href = "timesheetData.html"; // Replace with your target filename
+      }
+      
+
+    </script>
   </head>
   <body>
     <div class="container" id="container">
       <div class="form-container sign-in-container">
-        <form action="#">
+        <form id="admin" onclick="return validateAdminLogin(event)">
           <h1>Login</h1>
           <span>Enter your credentials below.</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button>Login</button>
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button class="btn">Login</button>
         </form>
       </div>
       <div class="overlay-container">
@@ -49,5 +72,8 @@
         bottom: 0;
       }
     </style>
+
+    <!-- script -->
+
   </body>
 </html>
