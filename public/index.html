@@ -1,96 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Softmania-Timesheet form</title>
-    <link rel="stylesheet" href="/public/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body class="bg-dark">
-    <div class="container my-5 text-white">
-        
-        <!-- header -->
-        <h1 class="mt-4 display-1">Soft Mania</h1>
-        
-       
-        <!-- names -->
-    <form id="myForm">
-        <div class="mt-5 row">
-            <h3 class="mt-4">Names <code>*</code></h3>
-            <div class="mt-2 col-auto">
-                
-                    <div class="form-check">
-                        <input type="checkbox" name="name" class="form-check-input forms" id="name" required> 
-                        <label for="name" class="form-check-label">kaliyappan</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="name2" class="form-check-input forms" id="name2" required>
-                        <label for="name2" class="form-check-label">Muruganantham</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="name3" class="form-check-input forms" id="name3" required>
-                        <label for="name3" class="form-check-label">Maheshwari</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="name4" class="form-check-input forms" id="name4" required>
-                        <label for="name4" class="form-check-label">Ramany</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="name5" class="form-check-input forms" id="name5" required>
-                        <label for="name5" class="form-check-label">Rahuman</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="name6" class="form-check-input forms" id="name6" required>
-                        <label for="name6" class="form-check-label">Varsha</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" name="name7" class="form-check-input forms" id="name7" required>
-                        <label for="name7" class="form-check-label">Shamanth</label>
-                    </div>
-                
-            </div>
-        </div>
-    </form>
-        <!-- date -->
+    <link rel="stylesheet" href="/public/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="container-fluid bg-dark p-0 m-0">
+      <div class="container">
         <div class="row">
-            <h3 class="mt-5">Date <code>*</code></h3>
-            <div class="col-4">
-                <div class="input-group col-date" id="datepicker">
-                    <input type="date" class="form-control" required>
-                    
-                </div>
-            </div>
+          <div class="col-5 d-flex align-items-center">
+            <img
+              src="/images/SoftMania_LOGO__2_-removebg-preview (1).png"
+              alt="softmania Logo"
+              class="img-fluid"
+              style="max-width: 150px"
+            />
+          </div>
+          <div class="col-7 d-flex justify-content-end align-items-center">
+            <nav class="nav">
+              <a class="text-white nav-link" href="#">Timesheets</a>
+              <a class="text-white nav-link" href="#">Reports</a>
+              <a class="text-white nav-link" href="#">Admin</a>
+              <button type="submit" class="btn btn-primary">
+                <a class="text-white nav-link" href="#">Login</a>
+              </button>
+            </nav>
+          </div>
         </div>
-        <!-- attendance -->
-        <div class="mt-5 col-auto">
-            <h3>Attendance <code>*</code></h3>
-            <div class="form-group" aria-required="true">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input formAttendance" id="work">
-                    <label for="work" class="form-check-label">Working/worked</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input formAttendance" id="delay">
-                    <label for="delay" class="form-check-label">Delay</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input formAttendance" id="leave">
-                    <label for="leave"  class="form-check-label">Leave</label>
-                </div>
-            </div>
-        </div>
+      </div>
+    </header>
 
-        <button type="submit"  onclick=" navigate()" class="mt-4 btn btn-outline-success">Next</button>
-    
-    
-    </div>
-      
-    
+    <main class="container py-4">
+      <h1>Timesheet Entry</h1>
+      <form id="timesheet-form" class="row">
+        <!-- names -->
+        <div>
+          <div class="pt-2 col-md-3 mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              required
+            />
+          </div>
+        </div>
+        <!-- date -->
+        <div class="pt-2 col-md-3 mb-3">
+          <label for="date" class="form-label">Date:</label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            class="form-control"
+            required
+          />
+        </div>
+     
+        <!-- attendance -->
+        <div class="pt-2 col-12 mb-3">
+          <label for="attendance" class="form-label">Attendance:</label>
+          <div class="attendance-options form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="working"
+              name="attendance"
+              value="Working"
+              required
+            />
+            <label class="form-check-label" for="working">Working</label>
+          </div>
+          <div class="attendance-options form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="leave"
+              name="attendance"
+              value="Leave"
+            />
+            <label class="form-check-label" for="leave">Leave</label>
+          </div>
+          <div class="attendance-options form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="delay"
+              name="attendance"
+              value="Delay"
+            />
+            <label class="form-check-label" for="delay">Delay</label>
+          </div>
+        </div>
+           <!-- hours -->
+           <div class="pt-2">
+            <div class="col-md-3 mb-3">
+              <label for="hours-worked" class="form-label">Hours Worked:</label>
+              <input
+                type="number"
+                id="hours-worked"
+                name="hours-worked"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <!-- description -->
+        <div class="pt-2 col-7 mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        <div class="col-12 d-flex justify-content-start">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+          <span class="text-muted">&copy; Softmania 2024</span>
+        </div>
+      </footer>
+      <style>
+        /* Custom styles for the footer */
+        .footer {
+          margin-top: auto;
+          background-color: #e0e0e0;
+          padding: 20px 0;
+          text-align: center;
+          position: absolute;
+          right: 0;
+          left: 0;
+          bottom: 0;
+        }
+      </style>
 
     <script src="/js/script.js"></script>
-    
-    
-    
-</body>
+  </body>
 </html>
