@@ -27,6 +27,6 @@ const timesheetSchema = new mongoose.Schema({
     }
 })
 
-const Timesheet = mongoose.model('users', timesheetSchema);
+const Timesheet = mongoose.model('timeSheet_form', timesheetSchema);
 
 module.exports = Timesheet;
