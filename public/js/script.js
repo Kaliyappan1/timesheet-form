@@ -36,3 +36,25 @@ form.addEventListener('submit', function(event) {
     // window.location.href = "submit.html";
   },100000000000000); // Hide message after 3 seconds
 });
+
+
+
+function validateAdminLogin(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get form values
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Simple validation (replace with your actual validation logic)
+  if (email === '' || password === '') {
+    alert('Please enter your email and password.');
+    return false; // Prevent form submission if validation fails
+  }
+
+  // Simulate successful login (replace with your login logic)
+  console.log('Admin login successful:', { email: email, password: password });
+
+  // Redirect to another page after successful login
+  window.location.href = "timesheetData.html"; // Replace with your target filename
+}
