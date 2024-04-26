@@ -1,46 +1,61 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 require('dotenv').config();
-const connectDB = require('./database/db_connection');
-const Sheema = require('./database/timesheetModels');
+const bcrypt = require('bcrypt');
+
+const connectDB = require('./src/db_connection');
+const collection = require('./src/timesheetModels');
 
 const app = express();
 
+// body parser middleware
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('public'))
 // connect to MongoDb
 connectDB();
 
-// body parser middleware
-app.use(express.json());
-app.use(express.static('public'))
+// set ejs as view engine
+app.set('view engine', 'ejs');
 
-// route form submission
-app.post('./', async (req, res) => {
-    try {
-        const { name, date, attendance, hours, description } = req.body;
-
-        // create new timesheet record
-        const timesheet = new Sheema({
-            name: name,
-            date: date,
-            attendance: attendance,
-            hours: hours,
-            description: description
-        });
-
-        // save to database
-        const data = await timesheet.save();
-
-        res.status(201).send('timesheet submitted successfully');
-    }catch (err) {
-        console.log("can't save timesheet form");
-        console.error(err.message);
-        res.status(500).send('timesheet submission failed');
-    }
+app.get('/', (req, res) => {
+    res.render('login');
+});
+app.get('/form', (req, res) => {
+    res.render('index');
+});
+app.get('/admin', (req, res) => {
+    res.render('Adminlogin');
+});
+app.post('/timesheet', (req, res) => {
+    res.render('timesheetData');
 });
 
+// route login submission
+
+app.post('/signup', async (req, res) => {
+    const data = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+    };
+    // check if the user already exists in the database
+  const existingUser = await collection.findOne({ username: data.username });
+  if (existingUser) {
+    res.send("user already exists. please choose a different username.");
+  } else {
+    // hash the password using bcrypt
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(data.password, saltRounds);
+
+    data.password = hashedPassword;
+
+    const userdata = await collection.insertMany(data);
+    console.log(userdata);
+    res.send('signup successfully');
+  }
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`listening on port: ${port} >  http://localhost:${port}`);
+    console.log(`server running on:${port} >  http://localhost:${port}`);
 });
