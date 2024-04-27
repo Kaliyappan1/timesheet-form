@@ -1,18 +1,15 @@
 const express = require('express');
-const mongoose = require('mongoose');
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 
-const connectDB = require('./src/db_connection');
-const collection = require('./src/timesheetModels');
+const collection = require('./src/config');
 
 const app = express();
 
 // body parser middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
-// connect to MongoDb
-connectDB();
+
 
 // set ejs as view engine
 app.set('view engine', 'ejs');
@@ -30,19 +27,24 @@ app.post('/timesheet', (req, res) => {
     res.render('timesheetData');
 });
 
-// route login submission
+// signup form
 
-app.post('/signup', async (req, res) => {
+app.post('/', async (req, res) => {
     const data = {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
-    };
+    }; 
     // check if the user already exists in the database
   const existingUser = await collection.findOne({ username: data.username });
+  const existingEmail = await collection.findOne({ email: data.email});
   if (existingUser) {
     res.send("user already exists. please choose a different username.");
-  } else {
+  } 
+  else if(existingEmail) {
+    res.send ("email already exists")
+  }
+  else {
     // hash the password using bcrypt
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(data.password, saltRounds);

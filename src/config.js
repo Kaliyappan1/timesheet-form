@@ -27,6 +27,34 @@ const LoginSchema = new mongoose.Schema({
 const Login = mongoose.model('login_form', LoginSchema);
 
 // signup
+const SignupSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+});
+const Signup = mongoose.model('signup_form', SignupSchema)
+
+// Adminlogin
+const AdminloginSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+});
+const Adminlogin = mongoose.model('adminlogin', AdminloginSchema)
 
 // timesheetschema
 const timesheetSchema = new mongoose.Schema({
@@ -54,10 +82,14 @@ const timesheetSchema = new mongoose.Schema({
         required: true
     }
 })
-
+console.log(Adminlogin);
 const Timesheet = mongoose.model('timeSheet_form', timesheetSchema);
 
 module.exports = {
     Login,
-    Timesheet
+    Timesheet,
+    Signup,
+    Adminlogin
+
+    
 }
