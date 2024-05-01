@@ -9,7 +9,7 @@ const app = express();
 // body parser middleware
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
-
+app.use(express.static('src'))
 
 // set ejs as view engine
 app.set('view engine', 'ejs');
@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     res.render('login');
 });
-app.get('/form', (req, res) => {
+app.post('/form', (req, res) => {
     res.render('index');
 });
 app.get('/admin', (req, res) => {
@@ -26,6 +26,9 @@ app.get('/admin', (req, res) => {
 app.post('/timesheet', (req, res) => {
     res.render('timesheetData');
 });
+app.use('submitts', (req, res) => {
+  res.send ('submit');
+})
 
 // signup form
 

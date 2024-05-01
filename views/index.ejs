@@ -65,16 +65,13 @@
           </div>
           <div class="col-7 d-flex justify-content-end align-items-center">
             <nav class="nav">
-              <a class="focus text-black nav-link" href="login.html"
+              <a class="focus text-black nav-link" href="/timesheet"
                 >Timesheets</a
               >
-              <a class="focus text-black nav-link" href="Adminlogin.html"
-                >Reports</a
-              >
-              <a class="focus text-black nav-link" href="Adminlogin.html"
+              <a class="focus text-black nav-link" href="/admin"
                 >Admin</a
               >
-              <button onclick="location='login.html'" class="ghost" id="signUp">
+              <button onclick="location='login.ejs'" class="ghost" id="signUp">
                 Sign Up
               </button>
             </nav>
@@ -86,7 +83,7 @@
     <main
       class="container d-flex justify-content-center align-item-cemter py-4"
     >
-      <form action="timesheetPost" method="post" id="timesheet-form" onclick="return submitForm(event)">
+      <form action="/submitts" method="post" id="timesheet-form" onclick="return submitForm(event)">
         <h1 class="pb-3">Timesheet</h1>
         <!-- names -->
         <div>
@@ -178,7 +175,7 @@
       </form>
       <div id="success-message" class="alert alert-success d-none" role="alert">
         Timesheet submitted successfully!
-        <p class=""><a href="login.html">Login softmania!</a></p>
+        <p class=""><a href="login.ejs">Login softmania!</a></p>
       </div>
     </main>
 
