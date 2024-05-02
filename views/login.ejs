@@ -14,25 +14,25 @@
 <!-- login -->
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="/form" method="post">
+        <form action="/signup" method="post">
             <h1>Create Account</h1>
             
             <span>or use your email for registration</span>
             <input type="text" placeholder="Name" name="username" required autocomplete="off"/>
             <input type="email" placeholder="Email" name="email" required autocomplete="off" />
             <input type="password" placeholder="Password" name="psssword" required />
-            <button>Sign Up</button>
+            <button type="submit">Sign Up</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="/form" method="post">
+        <form action="/login" method="post">
             <h1>Sign in</h1>
             
             <span>or use your account</span>
             <input type="email" placeholder="Email" name="email" />
             <input type="password" placeholder="Password" name="password" />
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button type="submit" value="submit">Sign In</button>
         </form>
     </div>
     <div class="overlay-container">
@@ -69,6 +69,6 @@
   }
 </style>
  
-<script src="/src/login.js"></script>
+<script src="login.js"></script>
 </body>
 </html>

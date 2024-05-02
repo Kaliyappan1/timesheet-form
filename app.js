@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     res.render('login');
 });
-app.post('/form', (req, res) => {
+app.get('/form', (req, res) => {
     res.render('index');
 });
 app.get('/admin', (req, res) => {
@@ -32,20 +32,17 @@ app.use('submitts', (req, res) => {
 
 // signup form
 
-app.post('/', async (req, res) => {
+app.post('/signup', async (req, res) => {
     const data = {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
     }; 
     // check if the user already exists in the database
-  const existingUser = await collection.findOne({ username: data.username });
   const existingEmail = await collection.findOne({ email: data.email});
-  if (existingUser) {
-    res.send("user already exists. please choose a different username.");
-  } 
-  else if(existingEmail) {
-    res.send ("email already exists")
+
+  if(existingEmail) {
+    res.send ("email already exists, please choose another email")
   }
   else {
     // hash the password using bcrypt
@@ -57,6 +54,32 @@ app.post('/', async (req, res) => {
     const userdata = await collection.insertMany(data);
     console.log(userdata);
     res.send('signup successfully');
+    res.redirect('/login');
+  }
+})
+
+// login
+app.post('/login', async (req, res) => {
+  try {
+    const check = await collection.findOne({ email: req.body.email});
+    if (!check) {
+      res.send("email connot found");
+    }
+
+    // compare the hash password from the database with the plain text
+    const isPasswordMatch = await bcrypt.compare(
+      req.body.password,
+      check.password
+    );
+    if (isPasswordMatch) {
+      res.render("index");
+    } else {
+      req.send("wrong password");
+    }
+  } catch (error) {
+    loggers.error(error);
+    console.error("Error", error);
+    return res.status(500).send("wrong details");
   }
 })
 
