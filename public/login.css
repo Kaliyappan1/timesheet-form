@@ -1,0 +1,130 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'poppins', sans-serif;
+
+}
+
+.container{
+  width: 70%;
+  max-width: 500px;
+  background: linear-gradient(to right, #205e71, #22802f, #5f9e13);
+  top: 50%;
+  left: 50%;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding: 40px 50px 60px;
+  text-align: center;
+
+
+}
+.container h1{
+  color: white;
+  margin-bottom: 60px;
+  position: relative;
+  
+}
+.container h1::after{
+  content: '';
+  width: 50px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgb(27, 63, 4);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translate(-50%);
+
+
+}
+.input-data{
+  background-color: #eaeaea;
+  margin: 10px 0;
+  display: flex;
+  border-radius: 3px;
+
+}
+.input-data input{
+  background: transparent;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+}
+
+p{
+  color: white;
+  padding: 20px;
+}
+p a{
+  color: rgb(54, 25, 54);
+  text-decoration: none;
+  padding: 5px;
+}
+
+.btn-field{
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  
+}
+.btn-field button{
+  flex-basis: 48%;
+  height: 50px;
+  background: rgb(54, 110, 19);
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  
+}
+.btn-field button.disable{
+  background-color: #eaeaea;
+  color: black;
+}
+.btn-field button a{
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+.btn-field button a.color{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.summit{
+  justify-content: center;
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+  height: 50px;
+  width: 100px;
+  border: none;
+  outline: none;
+  border-radius: 10px, 0,10px,0;
+  display: flex;
+  padding: 15px 20px 15px ;
+  text-align: center;
+  background: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+
+
+}
+
+.btn{
+  color: white;
+  margin-bottom: 60px;
+  position: relative;
+  background: rgb(159, 0, 159);
+  color: white;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  height: 50px;
+  width: 100px;
+}
