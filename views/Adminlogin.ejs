@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/SoftMania_LOGO__2_-removebg-preview (1).png">
+    <%- include('includes/head') %>
     <title>Admin login</title>
     <link
       rel="stylesheet"
@@ -12,6 +10,7 @@
     <link rel="stylesheet" href="admin.css" />
   </head>
   <body>
+    <%- include('includes/header') %>
     <div class="container" id="container">
       <div class="form-container sign-in-container">
         <form id="/timesheet" onclick="return validateAdminLogin(event)">

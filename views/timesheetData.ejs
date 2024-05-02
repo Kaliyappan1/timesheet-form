@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/SoftMania_LOGO__2_-removebg-preview (1).png">
+    <%- include('includes/head') %>
     <title>Form Data</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <link
@@ -16,30 +14,7 @@
   </head>
   <body>
 
-     <!-- header -->
-     <header class="container-fluid p-0 m-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-5 d-flex align-items-center">
-            <img
-            oncontextmenu="return false"
-              src="./images/SoftMania_LOGO__2_-removebg-preview (1).png"
-              alt="softmania Logo"
-              class="img-fluid"
-              style="max-width: 150px"
-            />
-          </div>
-          <div class="col-7 d-flex justify-content-end align-items-center">
-            <nav class="nav">
-              <a class="focus text-black nav-link" href="#">Timesheets</a>
-              <a class="focus text-black nav-link" href="#">Reports</a>
-              <a class="focus text-black nav-link" href="#">Admin</a>
-             
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
+    <%- include('includes/header') %>
     <!-- timesheet data -->
     <div class="container py-4">
         <h1>Timesheet Data</h1>
