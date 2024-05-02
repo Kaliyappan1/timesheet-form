@@ -23,10 +23,10 @@ app.get('/form', (req, res) => {
 app.get('/admin', (req, res) => {
     res.render('Adminlogin');
 });
-app.post('/timesheet', (req, res) => {
+app.get('/timesheet', (req, res) => {
     res.render('timesheetData');
 });
-app.use('submitts', (req, res) => {
+app.use('/submitts', (req, res) => {
   res.send ('submit');
 })
 

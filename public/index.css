@@ -1,0 +1,40 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+  }
+  button {
+    border-radius: 1px 20px 0;
+    border: 0px solid #000000;
+    background-color: #5dac1c;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+  .focus:active {
+    transform: scale(0.95);
+  }
+  button:focus {
+    outline: none;
+  }
+
+  button.ghost {
+    border-color: #ffffff;
+  }
+
+  .footer {
+    margin-top: auto;
+    background-color: #e0e0e0;
+    padding: 20px 0;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
