@@ -37,7 +37,15 @@ nav ul li a{
 a:hover{
   color: black;
   background: #eeeeee;
-  transition: .5s;
+}
+.active{
+  color: black;
+  background: #fff;
+}
+.active:hover{
+  color: #fff;
+  border: 2px solid #fff;
+  background: transparent;
 }
 
 .checkbtn{
@@ -74,7 +82,7 @@ a:hover{
     top: 80px;
     left: -100%;
     text-align: center;
-    transition: all .5s;
+    transition: all .3s;
   }
   nav ul li{
     display: block;
@@ -88,7 +96,7 @@ a:hover{
   a:hover{
     color: black;
     background: #eeeeee;
-    transition: .5s;
+    transition: .3s;
   }
   #check:checked ~ ul{
     left: 0;
