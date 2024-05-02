@@ -50,24 +50,11 @@
         </div>
     </div>
 </div>
-
-<script>
-    const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
-});
-</script>
-   <!-- footer -->
-   <footer class="footer">
+<!-- footer -->
+<footer class="footer">
     <span class="text-muted">&copy; Softmania 2024</span>
 </footer>
+
 <style>
   /* Custom styles for the footer */
   .footer {
@@ -81,6 +68,7 @@ signInButton.addEventListener('click', () => {
     bottom: 0;
   }
 </style>
-
+ 
+<script src="/src/login.js"></script>
 </body>
 </html>
