@@ -95,9 +95,9 @@ app.post('/login', async (req, res) => {
 // admin login
 app.post('/adminlogin',async (req,res) =>{
   try{
-    const check = await collection.Adminlogin.findOne({ email: req.body.email});
+    const check = await collection.Adminlogin.findOne({ email: req.body.email, password: req.body.password});
     if(!check) {
-      res.send ("invalid email,enter the corract emailname")
+      res.send ("<h2>Enter corract email or password</h2>")
     }else{
       res.redirect("/timesheet");
     }
