@@ -19,14 +19,15 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   res.render('home')
 })
-app.get('/form', (req, res) => {
-    res.render('index');
-});
+
 app.get('/admin', (req, res) => {
     res.render('Adminlogin');
 });
 app.get('/timesheet', (req, res) => {
     res.render('timesheetData');
+});
+app.get('/form', (req, res) => {
+  res.render('index');
 });
 app.get('/submitts', (req, res) => {
   res.render ('submit');
@@ -63,8 +64,7 @@ app.post('/signup', async (req, res) => {
 
     const userdata = await collection.users.insertMany(data);
     console.log(userdata);
-    res.send('signup successfully');
-    res.render('login');
+    res.redirect('/login')
   }
 })
 
@@ -82,9 +82,9 @@ app.post('/login', async (req, res) => {
       check.password
     );
     if (PasswordMatch) {
-      res.render("index");
+    return res.redirect('/form')
     } else {
-      req.send("wrong password");
+     return req.send("wrong password");
     }
   } catch (error) {
     console.error("Error", error);
@@ -99,7 +99,7 @@ app.post('/adminlogin',async (req,res) =>{
     if(!check) {
       res.send ("invalid email,enter the corract emailname")
     }else{
-      res.render("timesheetData");
+      res.redirect("/timesheet");
     }
   }catch (err) {
     console.error("error: ", err);
@@ -108,7 +108,7 @@ app.post('/adminlogin',async (req,res) =>{
 });
 
 // form collect
-app.post('/form', async(req, res) => {
+app.post('/submit', async(req, res) => {
   const form = {
     name: req.body.name,
     date: req.body.date,
@@ -116,12 +116,17 @@ app.post('/form', async(req, res) => {
     hours: req.body.hours,
     description: req.body.description
   }
-  
+  const existingEntry = await collection.Timesheet.findOne(form)
+  if(existingEntry) {
+    res.send('this form already exist')
+  }
+  else{
   const userdata = await collection.Timesheet.insertMany(form);
   console.log(userdata);
+  res.send('form submit successfully')
   console.log('timesheet submitted successfully')
-  
-})
+  }
+});
 
 
 const port = process.env.PORT || 3000;
