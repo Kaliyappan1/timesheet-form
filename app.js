@@ -64,7 +64,7 @@ app.post('/signup', async (req, res) => {
     const userdata = await collection.users.insertMany(data);
     console.log(userdata);
     res.send('signup successfully');
-    res.redirect('/login');
+    res.render('login');
   }
 })
 
