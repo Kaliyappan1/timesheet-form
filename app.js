@@ -107,6 +107,23 @@ app.post('/adminlogin',async (req,res) =>{
   }
 });
 
+// form collect
+app.post('/form', async(req, res) => {
+  const form = {
+    name: req.body.name,
+    date: req.body.date,
+    attendance: req.body.attendance,
+    hours: req.body.hours,
+    description: req.body.description
+  }
+  
+  const userdata = await collection.Timesheet.insertMany(form);
+  console.log(userdata);
+  console.log('timesheet submitted successfully')
+  
+})
+
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`server running on:${port} >  http://localhost:${port}`);

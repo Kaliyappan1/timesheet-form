@@ -21,7 +21,8 @@
     <main
       class="container d-flex justify-content-center align-item-cemter py-4"
     >
-      <form action="/submitts" method="post" id="timesheet-form" onclick="return submitForm(event)">
+    <!--   -->
+      <form action="/form" method="post" id="timesheet-form" onclick="return submitForm(event)">
         <h1 class="pb-3">Timesheet</h1>
         <!-- names -->
         <div>
@@ -90,6 +91,8 @@
                 type="number"
                 id="hours-worked"
                 name="hours"
+                min="3"
+                max="12"
                 class="form-control"
                 required
               />
@@ -108,13 +111,13 @@
           ></textarea>
         </div>
         <div class="col-12 d-flex justify-content-start">
-          <button class="ghost" id="signUp">Submit</button>
+          <button type="submit" class="ghost" id="signUp">Submit</button>
         </div>
       </form>
-      <div id="success-message" class="alert alert-success d-none" role="alert">
+      <!-- <div id="success-message" class="alert alert-success d-none" role="alert">
         Timesheet submitted successfully!
         
-      </div>
+      </div> -->
     </main>
 
     <%- include('includes/footer') %>

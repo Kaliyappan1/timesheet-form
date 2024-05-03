@@ -42,18 +42,18 @@ const timesheetSchema = new mongoose.Schema({
         required: true
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     },
     attendance: {
-        type: [{
-          type: String,
-          enum: ['Working', 'Delay', 'Leave']
-        }],
+        type: String,
+        enum: ['Working', 'Delay', 'Leave'],
         required: true
     },
     hours: {
         type: Number,
+        min: 3,
+        max: 13,
         required: true
     },
     description: {
