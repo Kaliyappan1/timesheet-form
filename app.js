@@ -15,8 +15,8 @@ app.use(express.static('src'))
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('login');
-});
+  res.render('home')
+})
 app.get('/form', (req, res) => {
     res.render('index');
 });
@@ -26,8 +26,14 @@ app.get('/admin', (req, res) => {
 app.get('/timesheet', (req, res) => {
     res.render('timesheetData');
 });
-app.use('/submitts', (req, res) => {
-  res.send ('submit');
+app.get('/submitts', (req, res) => {
+  res.render ('submit');
+})
+app.get('/login', (req, res) => {
+  res.render('login');
+})
+app.get('/signup', (req, res) => {
+  res.render('signup');
 })
 
 // signup form

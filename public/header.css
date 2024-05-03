@@ -1,7 +1,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  font-weight: bold;
+  font-weight: 600;
 }
 nav{
   background: linear-gradient(to right, #205e71, #22802f, #5f9e13);
@@ -32,9 +32,11 @@ nav ul li a{
   border-radius: 3px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: all .3s ease;
 
 }
-a:hover{
+nav ul li a:hover{
+  transform: scale(1.1);
   color: black;
   background: #eeeeee;
 }

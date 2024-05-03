@@ -2,37 +2,40 @@
 <html lang="en" >
 <head>
     <%- include('includes/head') %>
-  <title>login</title>
+  <title>signUp</title>
   <!-- unicons -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-  <link rel="stylesheet" href="./login.css">
+  <link rel="stylesheet" href="login.css">
 
 </head>
 <body>
     <%- include('includes/header') %>
 <!-- home -->
 <div class="container">
-    <h1>Login</h1>
-    <form id="" method="">
-        <div class="input-group">
-            
-            <div class="input-data">
-                <input type="email" placeholder="Email">
-            </div>
-            <div class="input-data">
-                <input type="password" placeholder="password">
-            </div>
-            <div>
-                <button value="" type="button" class="summit">submit</button>
-            </div>
-            <p>forget password ?<a href="#">click here</a></p>
-        </div>
-        <div class="btn-field">
-            <button type="button" ><a href="/signup">Signup</a></button>
-            <button type="button" class="disable"><a class="color" href="./login">Login</a></button>
-        </div>
-    </form>
-    
+  <h1>Sign Up</h1>
+  <form>
+      <div class="input-group">
+          <div class="input-data"><br>
+              <input type="text" class="box" id="name" name="name" placeholder="name" required>
+          </div>
+          <div class="input-data">
+              <input type="email" class="box" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="input-data">
+              <input type="password" class="box" id="password" name="password" placeholder="password" required>
+          </div>
+          <div class="input-data">
+              <input type="password" class="box" id="password" name="password" placeholder="re-enter password" required>
+          </div>
+          <div>
+              <button type="submit" value="signup" class="summit">submit</button>
+          </div>
+          <p>forget password ?<a href="#">click here</a></p>
+      </div>
+      <div class="btn-field">
+          <button onclick="location='/login'" type="button"><a class="color" href="/login">Login</a></button>
+      </div>
+  </form>
 </div>
 <!-- footer -->
 <%- include('includes/footer') %>

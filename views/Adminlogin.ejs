@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" >
+<head>
     <%- include('includes/head') %>
-    <title>Admin login</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="admin.css" />
-  </head>
-  <body>
-    <%- include('includes/header') %>
-    <div class="container" id="container">
-      <div class="form-container sign-in-container">
-        <form id="/timesheet" onclick="return validateAdminLogin(event)">
-          <h1>Login</h1>
-          <span>Enter your credentials below.</span>
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="password" name="password" placeholder="Password" required />
-          <button class="btn">Login</button>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-right">
-            <h1>Hello, Admin!</h1>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <title>Admin-login</title>
+  <!-- unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="admin.css">
 
-     <!-- footer -->
-     <%- include('includes/footer') %>
-  
-<script src="script.js"></script>
-  </body>
+</head>
+<body>
+    <%- include('includes/header') %>
+<!-- home -->
+<div class="admin">
+    <h1>Admin</h1>
+    <form id="" method="">
+        <div class="input-group">
+            
+            <div class="input-data">
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="input-data">
+                <input type="password" placeholder="password" name="password" required>
+            </div>
+            <div>
+                <button value="Admin-login" type="submit" class="summit">submit</button>
+            </div>
+            <p>forget password ?<a href="#">click here</a></p>
+        </div>
+        
+    </form>
+    
+</div>
+<!-- footer -->
+<%- include('includes/footer') %>
+
+ 
+<script src="login.js"></script>
+</body>
 </html>
