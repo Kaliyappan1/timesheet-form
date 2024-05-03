@@ -21,35 +21,25 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Day</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Attendance</th>
                     <th scope="col">Hours</th>
                     <th scope="col">Description</th>
                 </tr>
             </thead>
             <tbody>
+                <% x.forEach((sheet) => { %>
+
+             
                 <tr>
-                    <td>2023-04-01</td>
-                    <td>Saturday</td>
-                    <td>John Doe</td>
-                    <td>8.0</td>
-                    <td>Worked on project X</td>
+                    <td><%= sheet.name %></td>
+                    <td><%= sheet.date %></td>
+                    <td><%= sheet.attendance %></td>
+                    <td><%= sheet.hours %></td>
+                    <td><%= sheet.description %></td>
                 </tr>
-                <tr>
-                    <td>2023-04-02</td>
-                    <td>Sunday</td>
-                    <td>Jane Smith</td>
-                    <td>4.0</td>
-                    <td>Attended team meeting</td>
-                </tr>
-                <tr>
-                    <td>2023-04-03</td>
-                    <td>Monday</td>
-                    <td>Michael Johnson</td>
-                    <td>7.5</td>
-                    <td>Completed task Y</td>
-                </tr>
+                <%})%>
             </tbody>
         </table>
     </div>

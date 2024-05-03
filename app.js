@@ -23,9 +23,16 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
     res.render('Adminlogin');
 });
-app.get('/timesheet', (req, res) => {
-    res.render('timesheetData');
+app.get('/timesheet', async (req, res) => {
+    collection.Timesheet.find({})
+    .then((x) => {
+      res.render('timesheetData', {x})
+    })
+    .catch((sheet) => {
+      
+    })
 });
+
 app.get('/form', (req, res) => {
   res.render('index');
 });
@@ -122,8 +129,7 @@ app.post('/submit', async(req, res) => {
   }
   else{
   const userdata = await collection.Timesheet.insertMany(form);
-  console.log(userdata);
-  res.send('form submit successfully')
+  res.send('<h1>form submit successfully</h1>')
   console.log('timesheet submitted successfully')
   }
 });
