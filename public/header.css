@@ -1,14 +1,13 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: bold;
 }
 nav{
   background: linear-gradient(to right, #205e71, #22802f, #5f9e13);
   height: 80px;
   width: 100%;
 }
-
 label.logo{
   color: white;
   font-size: 35px;
@@ -34,11 +33,9 @@ nav ul li a{
   border-radius: 3px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all .3s ease;
 
 }
-nav ul li a:hover{
-  transform: scale(1.1);
+a:hover{
   color: black;
   background: #eeeeee;
 }

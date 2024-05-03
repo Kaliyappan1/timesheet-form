@@ -34,6 +34,6 @@ form.addEventListener('submit', function(event) {
     successMessage.classList.add('d-none'); // Hide success message after a delay
     //   Redirect after hiding message
     // window.location.href = "submit.html";
-  },100000000000000); // Hide message after 3 seconds
+  },1000000); // Hide message after 3 seconds
 });
 
