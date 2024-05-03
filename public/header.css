@@ -8,12 +8,14 @@ nav{
   height: 80px;
   width: 100%;
 }
+
 label.logo{
   color: white;
   font-size: 35px;
   line-height: 80px;
   padding: 0 100px;
   font-weight: bold;
+  cursor: pointer;
 }
 nav ul{
   float: right;

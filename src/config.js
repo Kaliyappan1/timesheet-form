@@ -13,22 +13,14 @@ connect.then(() => {
 // schemas
 
 
-// signup
-const SignupSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    }
+// user
+const user = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String,
+    re_password: String
 });
-const Signup = mongoose.model('signup_form', SignupSchema)
+const users = mongoose.model('usersLogin', user)
 
 // Adminlogin
 const AdminloginSchema = new mongoose.Schema({
@@ -72,9 +64,9 @@ const timesheetSchema = new mongoose.Schema({
 const Timesheet = mongoose.model('timeSheet_form', timesheetSchema);
 
 module.exports = {
-    Timesheet,
-    Signup,
-    Adminlogin
+    users,
+    Adminlogin,
+    Timesheet
 
     
 }
