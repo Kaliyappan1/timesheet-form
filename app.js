@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt');
 const collection = require('./src/config');
 
 const app = express();
+// convert data into json format
+app.use(express.json());
 
 // body parser middleware
 app.use(express.urlencoded({extended: true}));
@@ -40,12 +42,13 @@ app.get('/signup', (req, res) => {
 
 app.post('/signup', async (req, res) => {
     const data = {
-        username: req.body.username,
+        name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        re_password: req.body.re_password
     }; 
     // check if the user already exists in the database
-  const existingEmail = await collection.findOne({ email: data.email});
+  const existingEmail = await collection.users.findOne({ email: data.email});
 
   if(existingEmail) {
     res.send ("email already exists, please choose another email")
@@ -54,10 +57,11 @@ app.post('/signup', async (req, res) => {
     // hash the password using bcrypt
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(data.password, saltRounds);
-
+    const hashedre_Password = await bcrypt.hash(data.password, saltRounds);
+    data.re_password = hashedre_Password
     data.password = hashedPassword;
 
-    const userdata = await collection.insertMany(data);
+    const userdata = await collection.users.insertMany(data);
     console.log(userdata);
     res.send('signup successfully');
     res.redirect('/login');
@@ -67,27 +71,41 @@ app.post('/signup', async (req, res) => {
 // login
 app.post('/login', async (req, res) => {
   try {
-    const check = await collection.findOne({ email: req.body.email});
+    const check = await collection.users.findOne({ email: req.body.email});
     if (!check) {
       res.send("email connot found");
     }
 
     // compare the hash password from the database with the plain text
-    const isPasswordMatch = await bcrypt.compare(
+    const PasswordMatch = await bcrypt.compare(
       req.body.password,
       check.password
     );
-    if (isPasswordMatch) {
+    if (PasswordMatch) {
       res.render("index");
     } else {
       req.send("wrong password");
     }
   } catch (error) {
-    loggers.error(error);
     console.error("Error", error);
     return res.status(500).send("wrong details");
   }
-})
+});
+
+// admin login
+app.post('/adminlogin',async (req,res) =>{
+  try{
+    const check = await collection.Adminlogin.findOne({ email: req.body.email});
+    if(!check) {
+      res.send ("invalid email,enter the corract emailname")
+    }else{
+      res.render("timesheetData");
+    }
+  }catch (err) {
+    console.error("error: ", err);
+    return res.status(500).send("wrong details")
+  }
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
