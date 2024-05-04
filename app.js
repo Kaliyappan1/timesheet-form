@@ -64,7 +64,7 @@ app.post('/signup', async (req, res) => {
   const existingEmail = await collection.users.findOne({ email: data.email});
 
   if(existingEmail) {
-    res.send ("email already exists, please choose another email")
+    res.send ("<h1>email already exists</h1>")
   }
   else {
     // hash the password using bcrypt
@@ -85,7 +85,7 @@ app.post('/login', async (req, res) => {
   try {
     const check = await collection.users.findOne({ email: req.body.email});
     if (!check) {
-      res.send("email connot found");
+      res.send("<h1>  email connot found</h1>");
     }
 
     // compare the hash password from the database with the plain text
@@ -96,11 +96,11 @@ app.post('/login', async (req, res) => {
     if (PasswordMatch) {
     return res.redirect('/form')
     } else {
-     return req.send("wrong password");
+     return req.send("<h1>wrong password</h1>");
     }
   } catch (error) {
     console.error("Error", error);
-    return res.status(500).send("wrong details");
+    return res.status(500).send("<h1>wrong details</h1>");
   }
 });
 
@@ -115,7 +115,7 @@ app.post('/adminlogin',async (req,res) =>{
     }
   }catch (err) {
     console.error("error: ", err);
-    return res.status(500).send("wrong details")
+    return res.status(500).send("<h1>wrong details</h1>")
   }
 });
 
@@ -130,7 +130,7 @@ app.post('/submit', async(req, res) => {
   }
   const existingEntry = await collection.Timesheet.findOne(form)
   if(existingEntry) {
-    res.send('this form already exist')
+    res.send('<h1>this form already exist</h1>')
   }
   else{
   const userdata = await collection.Timesheet.insertMany(form);
