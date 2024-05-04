@@ -2,7 +2,7 @@ body{
         
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-  
+    flex-grow: 1;
 }
 .focus:active{
   transform: scale(0.95);

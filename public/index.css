@@ -1,6 +1,7 @@
 body {
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    flex-grow: 1;
   }
   button {
     border-radius: 1px 20px 0;
