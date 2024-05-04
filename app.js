@@ -33,7 +33,7 @@ app.post('/timesheet', async (req, res) => {
     })
 });
 
-app.post('/form', (req, res) => {
+app.get('/form', (req, res) => {
   res.render('index');
 });
 
