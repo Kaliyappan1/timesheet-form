@@ -46,6 +46,11 @@ app.get('/signup', (req, res) => {
   res.render('signup');
 })
 
+app.get('*', (req,res) => {
+  res.render('404')
+})
+
+
 // signup form
 
 app.post('/signup', async (req, res) => {

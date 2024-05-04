@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('includes/head') %>
     <title>404 - Page Not Found</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #5cff77;
+            background: linear-gradient(5deg, #6b909c, #639c52, #249640);
             margin: 0;
             padding: 0;
             display: flex;
@@ -45,10 +43,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>404 - Page Not Found</h1>
-        <p>Oops! The page you're looking for doesn't seem to exist.</p>
-        <p>Return to <a href="/">Home Page</a></p>
-    </div>
+
+<div class="container">
+    <h1>404 - Page Not Found</h1>
+    <p>Oops! The page you're looking for doesn't seem to exist.</p>
+    <p>Return to <a href="/">Home Page</a></p>
+</div>
+<%- include('includes/footer') %>
 </body>
 </html>
