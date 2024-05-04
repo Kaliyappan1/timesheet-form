@@ -14,22 +14,24 @@
 <div class="container">
     <h1>Login</h1>
     <form action="/login" method="post">
-        <div class="input-group">
-            <div class="input-data">
-                <input type="email" placeholder="Email" id="email" name="email" required>
+        <form action="/form" method="post">
+            <div class="input-group">
+                <div class="input-data">
+                    <input type="email" placeholder="Email" id="email" name="email" required>
+                </div>
+                <div class="input-data">
+                    <input type="password" placeholder="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <button value="login" type="submit" class="summit">submit</button>
+                </div>
+                <p>forget password ?<a href="#">click here</a></p>
             </div>
-            <div class="input-data">
-                <input type="password" placeholder="password" id="password" name="password" required>
+            <div class="btn-field">
+                <p>don't hava a account?</p>
+                <button onclick="location='/signup'" type="button" ><a class="color" href="/signup">Signup</a></button>
             </div>
-            <div>
-                <button value="login" type="submit" class="summit">submit</button>
-            </div>
-            <p>forget password ?<a href="#">click here</a></p>
-        </div>
-        <div class="btn-field">
-            <p>don't hava a account?</p>
-            <button onclick="location='/signup'" type="button" ><a class="color" href="/signup">Signup</a></button>
-        </div>
+        </form>
     </form>
     
 </div>

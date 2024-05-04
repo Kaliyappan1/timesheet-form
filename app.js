@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 app.get('/admin', (req, res) => {
     res.render('Adminlogin');
 });
-app.get('/timesheet', async (req, res) => {
+app.post('/timesheet', async (req, res) => {
     collection.Timesheet.find({})
     .then((x) => {
       res.render('timesheetData', {x})
@@ -33,12 +33,10 @@ app.get('/timesheet', async (req, res) => {
     })
 });
 
-app.get('/form', (req, res) => {
+app.post('/form', (req, res) => {
   res.render('index');
 });
-app.get('/submitts', (req, res) => {
-  res.render ('submit');
-})
+
 app.get('/login', (req, res) => {
   res.render('login');
 })
@@ -96,7 +94,7 @@ app.post('/login', async (req, res) => {
     if (PasswordMatch) {
     return res.redirect('/form')
     } else {
-     return req.send("<h1>wrong password</h1>");
+     return res.send("<h1>wrong password</h1>");
     }
   } catch (error) {
     console.error("Error", error);
