@@ -33,6 +33,9 @@ app.post('/timesheet', async (req, res) => {
     })
 });
 
+app.get('/popup', (req, res) => {
+  res.render('popupbtn');
+});
 app.get('/form', (req, res) => {
   res.render('index');
 });
@@ -47,7 +50,6 @@ app.get('/signup', (req, res) => {
 app.get('*', (req,res) => {
   res.render('404')
 })
-
 
 // signup form
 
