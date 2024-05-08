@@ -86,8 +86,12 @@ p a{
   background: rgb(0, 0, 0);
   color: white;
   cursor: pointer;
+  transition: all 0.3s ease;
 
 
+}
+.summit:hover{
+  transform: scale(1.1);
 }
 
 .btn{

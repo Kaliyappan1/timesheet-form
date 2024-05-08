@@ -82,6 +82,7 @@ p a{
   margin-top: 10px;
   cursor: pointer;
   border-radius: 10px 0 0 0;
+  transition: all 0.3s ease;
   
   
 }
@@ -95,6 +96,12 @@ p a{
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+.btn-field button:hover{
+  transform: scale(1.1);
+  background-color: rgb(224, 224, 224);
+
+}
+
 
 .summit{
   justify-content: center;
@@ -112,9 +119,14 @@ p a{
   background: rgb(0, 0, 0);
   color: white;
   cursor: pointer;
+  transition: all 0.3s ease;
 
 
 }
+.summit:hover{
+  transform: scale(1.1);
+}
+
 
 .btn{
   color: white;

@@ -36,8 +36,12 @@ app.post('/timesheet', async (req, res) => {
 app.get('/popup', (req, res) => {
   res.render('popupbtn');
 });
+
 app.get('/form', (req, res) => {
   res.render('index');
+});
+app.get('/adminDashboard', (req, res) => {
+  res.render('Adminhome');
 });
 
 app.get('/login', (req, res) => {
