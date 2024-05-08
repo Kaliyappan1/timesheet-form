@@ -33,6 +33,19 @@ app.post('/timesheet', async (req, res) => {
     })
 });
 
+// delete timesheet id
+app.post('/delete/:id', async (req, res) => {
+  try {
+      const dlt = await await collection.Timesheet.deleteOne({_id: req.query.id});
+      if (!dlt) {
+        return res.status(404).send("not found.");
+    }
+    res.send("deleted successfully.");
+  } catch (error) {
+      res.status(500).send(error.message);
+  }
+});
+
 app.get('/popup', (req, res) => {
   res.render('popupbtn');
 });

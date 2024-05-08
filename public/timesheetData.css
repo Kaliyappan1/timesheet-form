@@ -1,6 +1,6 @@
 body{
         
-    font-family: 'Montserrat', sans-serif;
+    
     font-weight: 500;
     flex-grow: 1;
 }
@@ -17,3 +17,11 @@ body{
     left: 0;
     bottom: 0;
   }
+
+.delete{
+  cursor: pointer;
+
+}
+.delete img:hover{
+  transform: scale(1.2);
+}

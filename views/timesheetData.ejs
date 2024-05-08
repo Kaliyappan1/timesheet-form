@@ -10,6 +10,8 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- sweatalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="timesheetData.css">
   </head>
   <body>
@@ -27,23 +29,29 @@
                     <th scope="col">Attendance</th>
                     <th scope="col">Hours</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+
                 </tr>
             </thead>
             <tbody>
                 <% x.forEach((sheet) => { %>
-                <tr class="align-bottom mb-5 pb-5">
+                <tr class="align-bottom align-middle mb-5 pb-5" id="<%= sheet._id %>">
                     <td><%= sheet.name %></td>
                     <td><%= sheet.date %></td>
                     <td><%= sheet.attendance %></td>
                     <td><%= sheet.hours %></td>
                     <td><%= sheet.description %></td>
+                    <td class="align-middle delete"  >
+                      <a href="/delete/:<%= sheet._id %>"><img src="images/delete.png" alt="delete" id="delete" width="25px"></a>
+                    </td>
                 </tr>
                 <%})%>
             </tbody>
         </table>
         </div>
     </div>
-       <!-- footer -->
+    
+    <!-- footer -->
        <%- include('includes/footer') %>
     
   </body>
